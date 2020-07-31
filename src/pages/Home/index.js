@@ -1,11 +1,11 @@
 import React from 'react';
-import Menu from './components/Menu';
-import BannerMain from './components/BannerMain';
-import VideoCardGroup from './components/Carousel';
-import dados from './dados_iniciais.json'
-import Footer from './components/Footer';
+import Menu from '../../components/Menu';
+import BannerMain from '../../components/BannerMain';
+import Carousel from '../../components/Carousel';
+import Dados from '../../dados_iniciais.json'
+import Footer from '../../components/Footer';
 
-function App() {
+function Home() {
   return (
     <div style={{  background: "#141414" }}>
       <Menu />
@@ -23,25 +23,25 @@ function App() {
         foi de onde originou o Git, dificilmente poderia funcionar em plataformas como GitHub." 
       />
 
-      <VideoCardGroup 
+      <Carousel 
         ignoreFirstVideo
-        category={dados.categorias[0]}
+        category={Dados.categorias[0]}
       />
 
-      <VideoCardGroup 
-        category={dados.categorias[1]}
+      <Carousel 
+        category={Dados.categorias[1]}
       />
 
-      <VideoCardGroup 
-        category={dados.categorias[2]}
+      <Carousel 
+        category={Dados.categorias[2]}
       />
 
-      <VideoCardGroup 
-        category={dados.categorias[3]}
+      <Carousel 
+        category={Dados.categorias[3]}
       />
 
-      <VideoCardGroup 
-        category={dados.categorias[4]}
+      <Carousel 
+        category={Dados.categorias[4]}
       />
 
     <Footer />
@@ -51,4 +51,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

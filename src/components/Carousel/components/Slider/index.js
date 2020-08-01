@@ -42,9 +42,9 @@ export const SliderItem = styled.li`
 const Slider = ({ children }) => (
   <Container>
     <SlickSlider {...{
-      dots: false,
+      dots: true,
       infinite: true,
-      speed: 300,
+      speed: 500,
       centerMode: false,
       variableWidth: true,
       adaptiveHeight: true,

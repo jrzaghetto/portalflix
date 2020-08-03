@@ -31,11 +31,11 @@ function CadastroCategoria() {
   };
 
   useEffect(() => {
-    console.log('Alo alo Brazil');
+    const URL_CATEGORIAS = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'http://portalflix.herokuapp.com/categorias';
 
-    const URL_Categorias = 'http://localhost:8080/categorias';
-
-    fetch(URL_Categorias)
+    fetch(URL_CATEGORIAS)
       .then(async (respostaDoServidor) => {
         const resposta = await respostaDoServidor.json();
         setCategorias([

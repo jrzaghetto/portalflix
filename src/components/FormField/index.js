@@ -102,7 +102,7 @@ FormField.defaultProps = {
   type: 'text',
   value: '',
   onChange: () => {},
-}
+};
 
 FormField.propTypes = {
   labelText: PropTypes.string.isRequired,
@@ -110,6 +110,6 @@ FormField.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
-}
+};
 
 export default FormField;

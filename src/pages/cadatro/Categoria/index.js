@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
@@ -41,7 +42,7 @@ function CadastroCategoria() {
         setCategorias([
           ...resposta,
         ]);
-    })
+      });
 
     // setTimeout(() => {
 
@@ -93,9 +94,11 @@ function CadastroCategoria() {
         <Button>Cadastrar</Button>
       </form>
 
-      {categorias.length === 0 && <div>
+      {categorias.length === 0 && (
+      <div>
         Loading
-        </div>}
+      </div>
+      )}
 
       <ul>
         {categorias.map((categoria, indice) => (

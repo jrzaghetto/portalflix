@@ -9,9 +9,9 @@ import useForm from '../../../hooks/useForm';
 
 const CadastroCategoria = () => {
   const valoresIniciais = {
-    nome: '',
+    titulo: '',
     descricao: '',
-    cor: '',
+    cor: '#ffffff',
   };
 
   const { clearForm, handleChange, values } = useForm(valoresIniciais);
@@ -57,7 +57,7 @@ const CadastroCategoria = () => {
         <FormField
           labelText="Nome da Categoria:"
           type="text"
-          name="nome"
+          name="titulo"
           value={values.titulo}
           onChange={handleChange}
         />

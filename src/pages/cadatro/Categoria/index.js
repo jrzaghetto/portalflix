@@ -6,12 +6,17 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import categoriasRepository from '../../../repositories/categorias';
 
 const CadastroCategoria = () => {
   const valoresIniciais = {
     titulo: '',
     descricao: '',
     cor: '#ffffff',
+    link_extra: {
+      text: '',
+      url: '',
+    },
   };
 
   const { clearForm, handleChange, values } = useForm(valoresIniciais);
@@ -19,43 +24,43 @@ const CadastroCategoria = () => {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
-    const URL_CATEGORIAS = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categorias'
-      : 'http://portalflix.herokuapp.com/categorias';
-
-    fetch(URL_CATEGORIAS)
-      .then(async (respostaDoServidor) => {
-        const resposta = await respostaDoServidor.json();
-        setCategorias([
-          ...resposta,
-        ]);
+    categoriasRepository
+      .getAll()
+      .then((categoriasFromServer) => {
+        setCategorias(categoriasFromServer);
       });
-
-    // setTimeout(() => {
-
-    // }, 4 * 1000);
   }, []);
 
   return (
     <PageDefault>
       <h1>
         Nova categoria
-        {values.titulo}
       </h1>
 
-      <form onSubmit={(infoDoEvento) => {
-        infoDoEvento.preventDefault();
+      <form onSubmit={(event) => {
+        event.preventDefault();
+
         setCategorias([
           ...categorias,
           values,
         ]);
 
-        clearForm();
+        categoriasRepository.create({
+          titulo: values.titulo,
+          cor: values.cor,
+          link_extra: {
+            text: 'teste',
+            url: 'http://',
+          },
+        })
+          .then(() => {
+            clearForm();
+          });
       }}
       >
 
         <FormField
-          labelText="Nome da Categoria:"
+          labelText="Nome da Categoria"
           type="text"
           name="titulo"
           value={values.titulo}
@@ -63,7 +68,7 @@ const CadastroCategoria = () => {
         />
 
         <FormField
-          labelText="Descrição:"
+          labelText="Descrição"
           type="textarea"
           name="descricao"
           value={values.descricao}
@@ -71,7 +76,7 @@ const CadastroCategoria = () => {
         />
 
         <FormField
-          labelText="Cor:"
+          labelText="Cor"
           type="color"
           name="cor"
           value={values.cor}
@@ -100,6 +105,6 @@ const CadastroCategoria = () => {
       </Link>
     </PageDefault>
   );
-}
+};
 
 export default CadastroCategoria;

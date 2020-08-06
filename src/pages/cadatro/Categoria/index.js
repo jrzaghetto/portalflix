@@ -1,10 +1,10 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
-import Button from '../../../components/Button';
+import SalvarButton from '../../../components/Button/SalvarButton';
+import LimparButton from '../../../components/Button/LimparButton';
 import useForm from '../../../hooks/useForm';
 import categoriasRepository from '../../../repositories/categorias';
 
@@ -37,26 +37,28 @@ const CadastroCategoria = () => {
         Nova categoria
       </h1>
 
-      <form onSubmit={(event) => {
-        event.preventDefault();
+      <form
+        id="teste"
+        onSubmit={(event) => {
+          event.preventDefault();
 
-        setCategorias([
-          ...categorias,
-          values,
-        ]);
+          setCategorias([
+            ...categorias,
+            values,
+          ]);
 
-        categoriasRepository.create({
-          titulo: values.titulo,
-          cor: values.cor,
-          link_extra: {
-            text: 'teste',
-            url: 'http://',
-          },
-        })
-          .then(() => {
-            clearForm();
-          });
-      }}
+          categoriasRepository.create({
+            titulo: values.titulo,
+            cor: values.cor,
+            link_extra: {
+              text: 'teste',
+              url: 'http://',
+            },
+          })
+            .then(() => {
+              clearForm();
+            });
+        }}
       >
 
         <FormField
@@ -83,7 +85,9 @@ const CadastroCategoria = () => {
           onChange={handleChange}
         />
 
-        <Button>Cadastrar</Button>
+        <SalvarButton type="submit">Salvar</SalvarButton>
+
+        <LimparButton type="button" onClick={clearForm}>Limpar</LimparButton>
       </form>
 
       {categorias.length === 0 && (
@@ -100,9 +104,6 @@ const CadastroCategoria = () => {
         ))}
       </ul>
 
-      <Link to="/">
-        Ir para home
-      </Link>
     </PageDefault>
   );
 };

@@ -5,19 +5,19 @@ import { Link, useHistory } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
-import Button from '../../../components/Button';
 import videosRepository from '../../../repositories/videos';
 import categoriasRepository from '../../../repositories/categorias';
-
+import SalvarButton from '../../../components/Button/SalvarButton';
+import LimparButton from '../../../components/Button/LimparButton';
 
 const CadastroVideo = () => {
   const history = useHistory();
   const [categorias, setCategorias] = useState([]);
   const categoryTitles = categorias.map(({ titulo }) => titulo);
-  const { handleChange, values } = useForm({
-    titulo: 'Titulo',
-    url: 'https://www.youtube.com/watch?v=ppZfq2Ma1RA',
-    categoria: 'Front End',
+  const { handleChange, values, clearForm } = useForm({
+    titulo: '',
+    url: '',
+    categoria: '',
   });
 
   useEffect(() => {
@@ -36,9 +36,7 @@ const CadastroVideo = () => {
       <form onSubmit={(event) => {
         event.preventDefault();
 
-        const categoriaEscolhida = categorias.find((categoria) => {
-          return categoria.titulo === values.categoria;
-        });
+        const categoriaEscolhida = categorias.find((categoria) => categoria.titulo === values.categoria);
 
         videosRepository.create({
           titulo: values.titulo,
@@ -77,15 +75,11 @@ const CadastroVideo = () => {
           suggestions={categoryTitles}
         />
 
-        <Button type="submit">
-          Cadastrar
-        </Button>
+        <SalvarButton type="submit">Salvar</SalvarButton>
+
+        <LimparButton type="button" onClick={clearForm}>Limpar</LimparButton>
 
       </form>
-
-      <Link to="/cadastro/categoria">
-        Cadastrar Categoria
-      </Link>
 
     </PageDefault>
   );

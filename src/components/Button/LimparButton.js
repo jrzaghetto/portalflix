@@ -14,6 +14,7 @@ const LimparButton = styled(Button)`
     flex-direction: row;
     margin-left: 0px;
     margin-top: 15px;
+    justify-content: center;
   }
 `;
 

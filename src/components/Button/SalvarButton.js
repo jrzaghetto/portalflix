@@ -11,6 +11,7 @@ const SalvarButton = styled(Button)`
     display: flex;
     width: 100%;
     flex-direction: row;
+    justify-content: center;
   }
 `;
 

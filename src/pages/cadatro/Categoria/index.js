@@ -12,7 +12,7 @@ const CadastroCategoria = () => {
   const valoresIniciais = {
     titulo: '',
     descricao: '',
-    cor: '#ffffff',
+    cor: '#80ffff',
     link_extra: {
       text: '',
       url: '',
@@ -33,7 +33,7 @@ const CadastroCategoria = () => {
 
   return (
     <PageDefault>
-      <h1>
+      <h1 style={{ textAlign: 'center' }}>
         Nova categoria
       </h1>
 

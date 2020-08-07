@@ -31,7 +31,7 @@ const CadastroVideo = () => {
   return (
 
     <PageDefault>
-      <h1>Cadastro de Vídeo</h1>
+      <h1 style={{ textAlign: 'center' }}>Cadastro de Vídeo</h1>
 
       <form onSubmit={(event) => {
         event.preventDefault();

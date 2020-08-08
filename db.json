@@ -5,7 +5,7 @@
       "titulo": "Front End",
       "cor": "#6BD1FF",
       "link_extra": {
-        "text": "Formação de Front End na Alura",
+        "text": "Vídeos que te levam ao mundo do Front End",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
     },
@@ -14,7 +14,7 @@
       "titulo": "Back End",
       "cor": "#00C86F",
       "link_extra": {
-        "text": "Cursos de Back End na Alura",
+        "text": "Vídeos que te levam ao mundo do Back End",
         "url": "https://www.alura.com.br/cursos-online-programacao"
       }
     },
@@ -23,7 +23,7 @@
       "titulo": "Data Science e Inteligência Artificial",
       "cor": "#9cd33b",
       "link_extra": {
-        "text": "Cursos de Data Science na Alura",
+        "text": "Saiba tudo sobre este mundo",
         "url": "https://www.alura.com.br/cursos-online-mobile"
       }
     },
@@ -32,7 +32,7 @@
       "titulo": "Series",
       "cor": "orange",
       "link_extra": {
-        "text": "Filmes",
+        "text": "Veja todas as séries do momento!",
         "url": "https://www.alura.com.br/cursos-online-mobile"
       }
     },
@@ -41,7 +41,7 @@
       "titulo": "Games",
       "cor": "red",
       "link_extra": {
-        "text": "Formação de Jogos na Alura",
+        "text": "Saiba quais serão os jogos lançamento de 2020",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
     }

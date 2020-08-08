@@ -8,12 +8,13 @@ const LimparButton = styled(Button)`
   color: var(--grayDark);
   width: 180px;
   margin-left: 30px;
+  margin-bottom: 50px;
   @media (max-width: 800px) {
     display: flex;
     width: 100%;
     flex-direction: row;
     margin-left: 0px;
-    margin-top: 15px;
+    margin-bottom: 15px;
     justify-content: center;
   }
 `;

@@ -7,6 +7,7 @@ import SalvarButton from '../../../components/Button/SalvarButton';
 import LimparButton from '../../../components/Button/LimparButton';
 import useForm from '../../../hooks/useForm';
 import categoriasRepository from '../../../repositories/categorias';
+import CategoryList from '../../../components/CategoryList';
 
 const CadastroCategoria = () => {
   const valoresIniciais = {
@@ -96,13 +97,20 @@ const CadastroCategoria = () => {
       </div>
       )}
 
-      <ul>
-        {categorias.map((categoria, indice) => (
-          <li key={`${categoria}${indice}`}>
-            {categoria.titulo}
-          </li>
-        ))}
-      </ul>
+      <CategoryList
+        nomeCategoria="Nome da Categoria"
+        descricaoCategoria="Descrição da Categoria"
+        editarCategoria="Editar"
+        excluirCategoria="Remover"
+      />
+
+      {categorias.map((categoria) => (
+        <CategoryList
+          className="itens"
+          nomeCategoria={categoria.titulo}
+          descricaoCategoria={categoria.link_extra.text}
+        />
+      ))}
 
     </PageDefault>
   );

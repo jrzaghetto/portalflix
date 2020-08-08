@@ -12,6 +12,7 @@ const SalvarButton = styled(Button)`
     width: 100%;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 15px;
   }
 `;
 

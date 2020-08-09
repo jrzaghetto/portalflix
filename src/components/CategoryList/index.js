@@ -15,6 +15,7 @@ const DivCategoriaWrapper = styled.div`
   margin-bottom: 0;
   -webkit-transition: border-color .3s;
   transition: border-color .3s;
+  }
 
   &.itens {
   display: flex;
@@ -33,6 +34,8 @@ const DivCategoriaWrapper = styled.div`
   border-radius: 4px;
   -webkit-transition: border-color .3s;
   transition: border-color .3s;
+  &:hover{
+    border-bottom: var(--primary) 4px solid;
 }
 `;
 
